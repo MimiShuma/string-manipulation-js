@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Manipulation</title>
+</head>
+
+<body>
+
+    <label for="inputString">Enter string: </label>
+    <input type="text" name="input-string" id="inputString" /><br><br>
+    <label for="indexNumber">Enter the position of the character to be removed: </label>
+    <input type="number" name="index-number" id="indexNumber" /><br><br>
+
+    <button type="button" onclick="getModifiedString()">Submit</button><br><br>
+
+    <div>New String: <span id="target"></span></div>
+
+
+    <script>
+        function getModifiedString() {
+            let inputString = document.getElementById('inputString').value;
+            let stringArrayOfInputString = [];
+            let target = document.getElementById('target');
+            let indexNumber = parseFloat(document.getElementById('indexNumber').value) - 1;
+
+            for (let i = 0; i < inputString.length; i++) {
+                stringArrayOfInputString.push(inputString.charAt(i));
+            }
+
+            stringArrayOfInputString.splice(indexNumber, 1);
+
+            target.innerHTML = stringArrayOfInputString.join('');
+
+        }
+    </script>
+</body>
+
+</html>
