@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Manipulation - problem 26</title>
+</head>
+
+<body>
+
+    <label for="inputString">Enter string: </label>
+    <input type="text" name="input-string" id="inputString" /><br><br>
+
+    <button type="button" onclick="getModifiedString()">Submit</button><br><br>
+
+    <span id="target"></span>
+
+
+    <script>
+        function getModifiedString() {
+
+            let inputString = document.getElementById('inputString').value;
+            let inputStringLength = inputString.length;
+
+            if (inputStringLength >= 3) {
+                let stringArrayOfInputString = [];
+                let target = document.getElementById('target');
+                let newStringLength = inputStringLength - 3;
+
+                let subStringArray = [];
+
+                for (let i = 0; i < inputStringLength; i++) {
+                    stringArrayOfInputString.push(inputString.charAt(i));
+                }
+
+                for (let i = newStringLength; i < inputStringLength; i++) {
+                    subStringArray.push(stringArrayOfInputString[i]);
+                }
+
+
+                target.innerHTML = "New String: " + subStringArray.join('') + stringArrayOfInputString.join('') + subStringArray.join('');
+            } else {
+                target.innerHTML = "String Length is less than 3";
+            }
+
+        }
+    </script>
+</body>
+
+</html>
