@@ -14,26 +14,32 @@
 
     <button type="button" onclick="getModifiedString()">Submit</button><br><br>
 
-    <div>New String: <span id="target"></span></div>
+    <span id="target"></span>
 
 
     <script>
         function getModifiedString() {
+
             let inputString = document.getElementById('inputString').value;
-            let stringArrayOfInputString = [];
-            let target = document.getElementById('target');
 
-            for (let i = 0; i < inputString.length; i++) {
-                stringArrayOfInputString.push(inputString.charAt(i));
+            if (inputString.length >= 1) {
+                let stringArrayOfInputString = [];
+                let target = document.getElementById('target');
+
+                for (let i = 0; i < inputString.length; i++) {
+                    stringArrayOfInputString.push(inputString.charAt(i));
+                }
+
+                let lastCharacter = stringArrayOfInputString.pop();
+                let fisrtCharacter = stringArrayOfInputString.shift();
+
+                stringArrayOfInputString.unshift(lastCharacter);
+                stringArrayOfInputString.push(fisrtCharacter);
+
+                target.innerHTML = "New String: " + stringArrayOfInputString.join('');
+            } else {
+                target.innerHTML = "String Length is less than 1";
             }
-
-            let lastCharacter = stringArrayOfInputString.pop();
-            let fisrtCharacter = stringArrayOfInputString.shift();
-
-            stringArrayOfInputString.unshift(lastCharacter);
-            stringArrayOfInputString.push(fisrtCharacter);
-
-            target.innerHTML = stringArrayOfInputString.join('');
 
         }
     </script>

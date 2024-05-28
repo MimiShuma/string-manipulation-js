@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Manipulation - problem 24</title>
+</head>
+
+<body>
+
+    <label for="inputString">Enter string: </label>
+    <input type="text" name="input-string" id="inputString" /><br><br>
+
+    <button type="button" onclick="getModifiedString()">Submit</button><br><br>
+
+    <span id="target"></span>
+
+
+    <script>
+        function getModifiedString() {
+
+            let inputString = document.getElementById('inputString').value;
+            let stringArrayOfInputString = [];
+            let target = document.getElementById('target');
+
+            for (let i = 0; i < inputString.length; i++) {
+                stringArrayOfInputString.push(inputString.charAt(i));
+            }
+
+            let fisrtCharacter = stringArrayOfInputString[0];
+
+            stringArrayOfInputString.unshift(fisrtCharacter);
+            stringArrayOfInputString.push(fisrtCharacter);
+
+            target.innerHTML = "New String: " + stringArrayOfInputString.join('');
+
+        }
+    </script>
+</body>
+
+</html>
