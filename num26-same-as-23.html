@@ -21,9 +21,9 @@
         function getModifiedString() {
 
             let inputString = document.getElementById('inputString').value;
-            let inputStringLength = inputString.length;
 
-            if (inputStringLength >= 3) {
+            if (inputString.length >= 3) {
+                let inputStringLength = inputString.length;
                 let stringArrayOfInputString = [];
                 let target = document.getElementById('target');
                 let newStringLength = inputStringLength - 3;
@@ -37,8 +37,6 @@
                 for (let i = newStringLength; i < inputStringLength; i++) {
                     subStringArray.push(stringArrayOfInputString[i]);
                 }
-
-
                 target.innerHTML = "New String: " + subStringArray.join('') + stringArrayOfInputString.join('') + subStringArray.join('');
             } else {
                 target.innerHTML = "String Length is less than 3";

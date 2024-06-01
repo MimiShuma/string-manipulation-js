@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Manipulation</title>
+</head>
+
+<body>
+
+    <label for="inputString">Input string: </label>
+    <input type="text" name="input-string" id="inputString" /><br><br>
+
+    <button type="button" onclick="getString()">Submit</button><br><br>
+
+    <span id="target"></span>
+
+
+    <script>
+        function getString() {
+            let sampleStringArray = ['j', 'a', 'v', 'a'];
+            let inputString = document.getElementById('inputString').value;
+            let inputStringArray = [];
+            let target = document.getElementById('target');
+
+            for (let i = 0; i < inputString.length; i++) {
+                inputStringArray.push(inputString.charAt(i));
+            }
+
+            let counter = 0;
+
+            for (let i = 0; i < 4; i++) {
+                if (inputStringArray[i] === sampleStringArray[i]) {
+                    counter++;
+                } else {
+                    i = 4;
+                }
+            }
+
+            if (counter === 4) {
+                target.innerHTML = "The string starts with Java";
+            } else {
+                target.innerHTML = "The string doesn't start with Java";
+            }
+
+        }
+    </script>
+</body>
+
+</html>
