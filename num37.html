@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 37</title>
+</head>
+
+<body>
+    <label for="inputString">Input string: </label>
+    <input type="text" name="input-string" id="inputString" /><br><br>
+
+    <button type="button" onclick="getString()">Submit</button><br><br>
+
+    <span id="target"></span>
+
+
+    <script>
+        function getString() {
+            let inputString = document.getElementById('inputString').value;
+            let target = document.getElementById('target');
+
+            if (inputString.length < 3) {
+                target.innerHTML = inputString.toUpperCase();
+            } else {
+                let firstHalf = inputString.slice(0, 3);
+                let secondHalf = inputString.slice(3);
+
+                target.innerHTML = firstHalf + secondHalf.toUpperCase();
+            }
+
+
+
+
+
+        }
+    </script>
+</body>
+
+</html>
